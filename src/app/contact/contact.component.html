@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 form-box">
+      <div class="well">
+        <h2>Contact Professional Services</h2>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <form autocomplete="off" novalidate [formGroup]="contact" (ngSubmit)="onSubmit(contact)">
+                  <div class="form-group">
+                    <label for="fullname">Full name</label>
+                    <input [ngClass]="{'error-class-input': contact.get('fullname').touched && contact.get('fullname').hasError('required')}"
+                      type="text" formControlName="fullname" class="form-control" placeholder="First and last name" />
+                    <div class="error-class-text" *ngIf="contact.get('fullname').touched && contact.get('fullname').hasError('required')">
+                      <span class="form-control-invalid-text">Your full name is required.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input [ngClass]="{'error-class-input': contact.get('email').touched && contact.get('email').hasError('required')}" type="email"
+                      class="form-control" formControlName="email" placeholder="you@example.com" />
+                    <div class="error-class-text" *ngIf="contact.get('email').touched && contact.get('email').hasError('required')">
+                      <span class="form-control-invalid-text">A valid email address is required.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="company">Company</label>
+                    <input [ngClass]="{'error-class-input': contact.get('company').touched && contact.get('company').hasError('required')}" type="text"
+                      class="form-control" formControlName="company" placeholder="Amce ,Inc" />
+                    <div class="error-class-text" *ngIf="contact.get('company').touched && contact.get('company').hasError('required')">
+                      <span class="form-control-invalid-text">A valid company name is required.</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="help">What can we help you with?</label>
+                    <textarea [ngClass]="{'error-class-input': contact.get('help').touched && contact.get('help').hasError('required')}" placeholder="Tell us how we can help. For support questions, head to tin.com/contact"
+                      class="form-control" formControlName="help" cols="20" rows="5"></textarea>
+                    <div class="error-class-text" *ngIf="contact.get('help').touched && contact.get('help').hasError('required')">
+                      <span class="form-control-invalid-text">A valid comment is required.</span>
+                    </div>
+                  </div>
+                  <button [disabled]="contact.invalid" class="btn btn-lg btn-blue">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
